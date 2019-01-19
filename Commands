@@ -1,0 +1,10 @@
+sudo raspi-config --> opens the configuration settings menu
+
+sudo shutdown -h now --> turns off rpi
+
+reboot --> reboots rpi
+
+ping -c 3 raspberrypi.local --> checks if rpi is connecnted to your network
+
+ssh pi@raspberrypi.local --> connects with rpi through ssh
+

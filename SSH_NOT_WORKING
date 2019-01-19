@@ -1,0 +1,29 @@
+Because I frequently use a variety of different SD cards with my RPi B & a DHCP reservation for it based on its hardware MAC address, I kept running into the 'remote host ID has changed' warning whenever I changed cards & tried to access it from my Mac with ssh.
+
+Clearing the SSH key for that MAC address in ~/.ssh/known_hosts on the Mac every time I changed cards would have been annoying so I decided to do (I think) what the warning text suggested by adding a 'correct' host key to that file for each SD card I use.
+
+There are different ways to do this but the simplest one I found was as follows:
+
+1. On the Mac, navigate to the ~/.ssh/ folder in Finder. Because files & folders starting with a dot are normally hidden, do this by using the Finder's Go > Go to folder... option (shortcut: Shift + Command + G) & entering "~/.ssh/" (without the quotes) & clicking the "Go" button.
+
+2. Right-click on the known_hosts file in the Finder window & choose "Duplicate" from the contextual menu. This will add a file to the folder named "known_hosts copy" that ssh authentication will ignore.
+
+3. Drag the original known_hosts file to the trash.
+
+4. Boot up the RPi with a SD card that previously generated the warning & ssh to it on the Mac. Because now there is no known_host file on the Mac, it will create a new one with just the host key info for that card in it.
+
+5. To be on the safe side at this point I end the ssh connection but that probably isn't necessary.
+
+6. Open both the known_host and the known_host copy files in a text editor. I use TextWrangler but TextEdit will probably work as well.
+
+7. Copy the (very long) single line entry in known_host & paste it after the last line in known_host copy on a new line. Add a return (may not be necessary) & save the file.
+
+8. Now move known_host to the Trash & rename known_host copy to known_host in the usual way in the Finder.
+
+9. Repeat steps 1 through 8 as often as necessary for each SD card that generates a warning.
+
+Now known_host has host keys for each SD card so there will be no warning & password authentication will work regardless of which card the RPi is using.
+
+Note: I know all this can be done from the command line in Terminal but I find using the Finder & text editor GUI tools more "Mac-like" & less prone to error.
+
+Anybody see anything wrong with this approach?

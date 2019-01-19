@@ -1,0 +1,3 @@
+source ~/.profile --> exit the cv virtual environment
+
+workon cv --> enters the cv virtual environment
