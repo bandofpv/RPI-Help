@@ -7,7 +7,3 @@ reboot --> reboots rpi
 ping -c 3 raspberrypi.local --> checks if rpi is connecnted to your network
 
 ssh pi@raspberrypi.local --> connects with rpi through ssh
-
-tightvncserver --> type into pi terminal to start vnc server
-
-vnc://pi.local:5901 --> go to folder and Command K than copy this into Server Adress and type password
