@@ -9,3 +9,5 @@ ping -c 3 raspberrypi.local --> checks if rpi is connecnted to your network
 ssh pi@192.168.1.182 --> connects with first rpi through ssh
 
 ssh pi@192.168.1.10 --> connects with second rpi through ssh
+
+ssh pi@192.168.1.15 --> connects with third rpi through ssh
